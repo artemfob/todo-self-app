@@ -5,9 +5,9 @@ export default class ItemStatusFilter extends Component{
     render() {
         return(
             <div>
-                <button></button>
-                <button></button>
-                <button></button>
+                <button className="btn ">All</button>
+                <button className="btn ">Active</button>
+                <button className="btn ">Done</button>
             </div>
         )
     }
