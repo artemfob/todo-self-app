@@ -1,18 +1,18 @@
 import React, {Component} from 'react'
 import TodoListItem from '../todo-list-item';
 
-export default class TodoList extends Component{
+export default class TodoList extends Component {
 
     render() {
         const {todos, ifDelete} = this.props;
-        const elements = todos.map((item)=>{
+        const elements = todos.map((item) => {
             const {id, ...itemProps} = item;
-            return(
+            return (
                 <li key={id}><TodoListItem {...itemProps}
-                    ifDelete = {()=>ifDelete(id)}/></li>
+                                           ifDelete={() => ifDelete(id)}/></li>
             )
         });
-        return(
+        return (
             <ul className="list-unstyled">
                 {elements}
             </ul>

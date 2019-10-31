@@ -26,23 +26,23 @@ export default class App extends Component {
             this.createElement('some 3')
         ]
     };
-ifDeleted = (id) =>{
-  this.setState(({todoData}) => {
-      const idx = todoData.findIndex((el)=> el.id === id);
-      const newArr = [...todoData.slice(0, idx), ...todoData.slice(idx+1)]
-      return{
-          todoData: newArr
-      }
-  })
-};
-ifAdded = (text) =>{
-    this.setState(({todoData})=>{
-        const newItem = this.createElement(text);
-       return{
-           todoData: [...todoData, newItem]
-       }
-    });
-};
+    ifDeleted = (id) => {
+        this.setState(({todoData}) => {
+            const idx = todoData.findIndex((el) => el.id === id);
+            const newArr = [...todoData.slice(0, idx), ...todoData.slice(idx + 1)];
+            return {
+                todoData: newArr
+            }
+        })
+    };
+    ifAdded = (text) => {
+        this.setState(({todoData}) => {
+            const newItem = this.createElement(text);
+            return {
+                todoData: [...todoData, newItem]
+            }
+        });
+    };
 
     render() {
         const {todoData} = this.state;
@@ -54,8 +54,8 @@ ifAdded = (text) =>{
                     <ItemStatusFilter/>
                 </div>
                 <TodoList todos={todoData}
-                          ifDelete = {this.ifDeleted}
-                          />
+                          ifDelete={this.ifDeleted}
+                />
                 <AddBar ifAdd={this.ifAdded}/>
             </div>
         )

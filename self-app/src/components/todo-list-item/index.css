@@ -1,4 +1,11 @@
 .todo-item{
     border: 1px solid darkgrey;
     border-radius: 4px;
+    margin-top: 3px;
+    padding: 2px;}
+.todo-item span{
+    margin-left: 10px;
+}
+.btn-outline-success{
+    margin-right: 3px;
 }

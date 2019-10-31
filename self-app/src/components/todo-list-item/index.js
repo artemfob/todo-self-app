@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import './index.css'
 
-export default class TodoListItem extends Component{
+export default class TodoListItem extends Component {
 
 
     render() {
         const {label, ifDelete} = this.props;
-        return(
+        return (
             <div className="d-flex todo-item">
-                <span >
+                <span>
                 {label}
                 </span>
                 <div className="btns ml-auto">
