@@ -74,20 +74,43 @@ filter = (items, filter) =>{
     filterChange = (filter) =>{
         this.setState({filter});
     };
+    toggleProps(arr, id, propName){
+           const idx = arr.findIndex((el)=> el.id===id);
+           const oldItem = arr[idx];
+           const newItem = {...oldItem,
+           [propName]: !oldItem[propName]};
+           return[
+               ...arr.slice(0, idx), newItem, ...arr.slice(idx+1)
+           ]
+
+
+        }
+
 
     onToggleImportant=(id)=>{
-        console.log(id)
+        this.setState(({todoData})=>{
+            return{
+                todoData: this.toggleProps(todoData, id, 'important')
+            }
+        })
     };
     onToggleDone=(id)=>{
-        console.log(id)
+        this.setState(({todoData})=>{
+            return{
+                todoData: this.toggleProps(todoData,id, 'done')
+            }
+        })
 
     };
     render() {
         const {todoData, term, filter} = this.state;
+        const doneCount = todoData.filter((el)=>el.done).length;
+        const impCount = todoData.length - doneCount;
         const visibleItems = this.filter(this.search(todoData,term),filter);
         return (
             <div className="body">
-                <Header/>
+                <Header done = {doneCount}
+                        imp={impCount}/>
                 <div className="d-flex">
                     <SearchPanel searchFunc={this.searchFunc}/>
                     <ItemStatusFilter

@@ -5,10 +5,11 @@ export default class Header extends Component {
     done = 1;
 
     render() {
+        const {done, imp} = this.props;
         return (
             <div className="header">
                 <h1>My todo app</h1>
-                <h4>Need to be done {this.toDo}, done already {this.done}</h4>
+                <h4>Need to be done {imp}, done already {done}</h4>
             </div>
         )
     }
