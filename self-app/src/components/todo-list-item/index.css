@@ -9,3 +9,10 @@
 .btn-outline-success{
     margin-right: 3px;
 }
+.done{
+    text-decoration: line-through;
+}
+.important{
+    text-transform: uppercase;
+    color: red;
+}
